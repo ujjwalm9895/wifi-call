@@ -1,0 +1,68 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dreamboard Voice Call</title>
+  <link rel="manifest" href="/manifest.json" />
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+      background: #f2f2f2;
+    }
+    input, button {
+      font-size: 1rem;
+      margin: 0.5rem;
+      padding: 0.5rem 1rem;
+    }
+    #dreamboard img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+    .hidden { display: none; }
+    #ringing, #in-call {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h2>🎧 Dreamboard Voice Call</h2>
+
+  <div id="login">
+    <input id="username" placeholder="Enter your username" />
+    <button onclick="register()">Register</button>
+  </div>
+
+  <div id="call-ui" class="hidden">
+    <input id="callee" placeholder="Call user by ID" />
+    <button onclick="makeCall()">📞 Call</button>
+  </div>
+
+  <div id="ringing" class="hidden">
+    <h3>Incoming call from <span id="caller"></span></h3>
+    <button onclick="acceptCall()">✅ Accept</button>
+    <button onclick="rejectCall()">❌ Reject</button>
+  </div>
+
+  <div id="in-call" class="hidden">
+    <h3>In call with <span id="inCallWith"></span></h3>
+    <button onclick="endCall()">🔚 End Call</button>
+  </div>
+
+  <div id="dreamboard"></div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
